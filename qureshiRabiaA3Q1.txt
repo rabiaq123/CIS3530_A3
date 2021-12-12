@@ -1,0 +1,44 @@
+CIS3530 Assignment 3, Question 1
+Rabia Qureshi (1046427)
+Date: December 2, 2021
+
+
+    Function Name       Description                 SELECT query in Postgres
+--------------------------------------------------------------------------------------------------------
+1   UPPER               Takes a string as arg.      SELECT UPPER(director) FROM MOVIE;
+                        Returns string in    
+                        uppercase format.
+--------------------------------------------------------------------------------------------------------
+2   SPLIT_PART          Takes a string as arg       SELECT 
+                        and splits string on a          rid,
+                        specified delimiter.            split_part(name,' ',1) reviewerFirstName, 
+                        Returns the nth                 split_part(name,' ',2) reviewerLastName 
+                        substring of result.        FROM REVIEWER;
+--------------------------------------------------------------------------------------------------------
+3   TO_CHAR             Takes a timestamp,          SELECT
+                        interval, integer,              rid,
+                        double precision, or            mid,
+                        a numeric value.                stars,
+                        Returns the arg as              to_char(ratingdate,'Mon-DD-YYYY') as formatDate
+                        a string.                   FROM RATING;
+--------------------------------------------------------------------------------------------------------
+4   EXTRACT             Takes a (1) field arg       SELECT
+                        communicating which part        rid,
+                        of the date to extract          mid,
+                        from the date/time value,       stars,
+                        and a (2) source arg which      extract(month from ratingdate) as ratingMonth2011
+                        the date/time to be         FROM RATING;
+                        modified comes from.
+                        Returns a double precision
+                        value.
+--------------------------------------------------------------------------------------------------------
+5   CONCAT              Takes two or more strings   SELECT 
+                        for input.                      rid,
+                        Returns the inputted            mid,
+                        strings concatenated            concat(stars,' stars') as stars
+                        as one.                     FROM RATING;
+
+
+Sources used for reference: 
+https://www.postgresql.org/docs/9.2/functions.html
+https://www.postgresqltutorial.com/
